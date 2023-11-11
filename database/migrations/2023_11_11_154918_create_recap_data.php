@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('recap_data', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("month_payment_id");
+            $table->unsignedBigInteger("pemilik_rumah_id");
+            $table->unsignedBigInteger("rumah_id");
             $table->timestamps();
+
+            // foreign keys
+            $table->foreign("month_payment_id")->references("id")->on("monthly_payments");
+            $table->foreign("pemilik_rumah_id")->references("id")->on("pemilik_rumah");
+            $table->foreign("rumah_id")->references("id")->on("perumahan");
+
         });
     }
 
