@@ -11,7 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create("monthly_payments", function(Blueprint $table) {
+            $table->id();
+            $table->string("category", 100);
+            $table->boolean("is_paid")->default(false);
+            $table->unsignedBigInteger("rumah_id");
+            $table->foreign("rumah_id")->references("id")->on("rumah");
+            $table->timestamp("");
+        });
     }
 
     /**
