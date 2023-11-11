@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('penduduk', function (Blueprint $table) {
             $table->id();
             $table->string("nama_penduduk");
-            $table->foreignId("keluarga_dari")->constrained();
+            $table->unsignedBigInteger("keluarga_dari");
             $table->timestamps();
+            $table->foreign("keluarga_dari")->references("id")->on("pemilik_rumah");
         });
     }
 
