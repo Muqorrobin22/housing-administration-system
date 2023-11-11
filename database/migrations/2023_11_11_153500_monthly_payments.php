@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("category", 100);
             $table->boolean("is_paid")->default(false);
             $table->unsignedBigInteger("rumah_id");
-            $table->foreign("rumah_id")->references("id")->on("rumah");
+            $table->foreign("rumah_id")->references("id")->on("perumahan");
             $table->timestamps();
         });
     }
