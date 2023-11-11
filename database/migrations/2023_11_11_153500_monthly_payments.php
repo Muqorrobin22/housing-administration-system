@@ -17,7 +17,7 @@ return new class extends Migration
             $table->boolean("is_paid")->default(false);
             $table->unsignedBigInteger("rumah_id");
             $table->foreign("rumah_id")->references("id")->on("rumah");
-            $table->timestamp("");
+            $table->timestamps();
         });
     }
 
