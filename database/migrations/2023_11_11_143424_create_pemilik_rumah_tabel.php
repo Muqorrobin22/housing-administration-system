@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('pemilik_rumah_tabel', function (Blueprint $table) {
             $table->id();
+            $table->string("nama_lengkap");
+            $table->foreign("rumah_id")->references("id")->on("perumahan");
             $table->timestamps();
         });
     }
