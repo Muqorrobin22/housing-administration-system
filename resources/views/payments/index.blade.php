@@ -12,6 +12,8 @@
                 <th>Category</th>
                 <th>Is Paid</th>
                 <th>Rumah ID</th>
+                <th>Bulan</th>
+                <th>Tahun</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,6 +24,8 @@
                     <td>{{ $payment->category }}</td>
                     <td>{{ $payment->is_paid ? 'Yes' : 'No' }}</td>
                     <td>{{ $payment->perumahan->nama_rumah }}</td>
+                    <td>{{ $payment->month }}</td>
+                    <td>{{ $payment->year }}</td>
                     <td>
                         <!-- Add links/buttons for edit and delete actions -->
                         <a href="{{ route('payments.edit', $payment->id) }}" class="btn btn-sm btn-warning">Edit</a>

@@ -16,7 +16,7 @@
 
         <div class="mb-3">
             <label for="year" class="form-label">Year</label>
-            <input type="text" class="form-control" id="year" name="year" required>
+            <input type="text" class="form-control" id="year" name="year" maxlength="4" required>
         </div>
         
         <div class="mb-3">
