@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class MonthlyPayments extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['category', 'is_paid', 'rumah_id', 'year', 'month'];
+
+
+    public function perumahan()
+    {
+        return $this->belongsTo(Perumahan::class, 'rumah_id');
+    }
+    
 }
