@@ -55,7 +55,11 @@ class PendudukController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $penduduk = Penduduk::find($id);
+
+        $pemilikRumah = PemilikRumah::pluck('nama_lengkap','id');
+
+        return view("penduduk.edit", compact("penduduk", "pemilikRumah"));
     }
 
     /**
@@ -63,7 +67,20 @@ class PendudukController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_penduduk' => 'required|string',
+            'keluarga_dari' => 'required|exists:pemilik_rumah,id',
+        ]);
+
+        $penduduk = Penduduk::find($id);
+
+        if(!$penduduk) {
+            return redirect()->route('penduduk.index')->with('error', 'Penduduk not found');
+        }
+
+        $penduduk->update($validatedData);
+
+        return redirect()->route('penduduk.index')->with('success', 'Penduduk updated successfully.');
     }
 
     /**
