@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/", [PerumahanController::class,"index"])->name("home");
+Route::get("/perumahan", [PerumahanController::class, "index"])->name("home");
