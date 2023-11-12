@@ -42,10 +42,15 @@ class MonthlyPaymentController extends Controller
                 'exists:perumahan,id',
                 Rule::unique('monthly_payments')->where(function ($query) use ($request) {
                     return $query->where('rumah_id', $request->rumah_id)
-                        ->where('category', $request->category);
+                        ->where('category', $request->category)
+                        ->where('year', $request->year)
+                        ->where('month', $request->month);
                 }),
             ],
+            'year' => 'required|digits:4',
+            'month' => 'required|in:Januari,Februari,Maret,April,Mei,Juni,Juli,Agustus,September,Oktober,November,Desember',
         ]);
+
 
         MonthlyPayments::create($validationRule);
 
@@ -85,9 +90,13 @@ class MonthlyPaymentController extends Controller
                 Rule::unique('monthly_payments')->where(function ($query) use ($request, $id) {
                     return $query->where('rumah_id', $request->rumah_id)
                         ->where('category', $request->category)
-                        ->where('id', '!=', $id); 
+                        ->where('year', $request->year)
+                        ->where('month', $request->month)
+                        ->where('id', '!=', $id); // Exclude the current record from uniqueness check during update.
                 }),
             ],
+            'year' => 'required|digits:4',
+            'month' => 'required|in:Januari,Februari,Maret,April,Mei,Juni,Juli,Agustus,September,Oktober,November,Desember',
         ]);
 
         $payment = MonthlyPayments::find($id);
