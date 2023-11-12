@@ -4,6 +4,7 @@ use App\Http\Controllers\MonthlyPaymentController;
 use App\Http\Controllers\PemilikRumahController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PerumahanController;
+use App\Http\Controllers\RecapController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,4 +52,5 @@ Route::post("/payments", [MonthlyPaymentController::class, "store"])->name("paym
 Route::delete("/payments/delete/{id}", [MonthlyPaymentController::class, "destroy"])->name("payments.destroy");
 
 
-
+// recap
+Route::get('/recap', [RecapController::class, 'index'])->name('recap.index');
