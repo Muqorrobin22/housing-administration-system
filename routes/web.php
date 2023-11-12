@@ -18,4 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/perumahan", [PerumahanController::class, "index"])->name("home");
+Route::get("/perumahan", [PerumahanController::class, "index"])->name("perumahan.home");
+
+Route::get('/perumahan/{id}', [PerumahanController::class, 'show'])->name("perumahan.show");
+
+// Update Route
+Route::put('/perumahan/{id}', [PerumahanController::class, 'update'])->name("perumahan.update");
