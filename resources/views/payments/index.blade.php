@@ -28,11 +28,11 @@
                     <td>{{ $payment->year }}</td>
                     <td>
                         <!-- Add links/buttons for edit and delete actions -->
-                        <a href="{{ route('payments.edit', $payment->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('payments.edit', $payment->id) }}" class="btn  btn-warning">Edit</a>
                         <form action="{{ route('payments.destroy', $payment->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                            <button type="submit" class="btn  btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                         </form>
                     </td>
                 </tr>

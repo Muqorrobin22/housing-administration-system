@@ -24,7 +24,12 @@
                         <td>{{ $rumah->nama_lengkap }}</td>
                         <td>{{ $rumah->perumahan->nama_rumah }}</td>
                         <td>
-                            <a href="{{ route('pemilik_rumah.edit', $rumah->id) }}" class="btn btn-primary btn-sm">Edit</a> 
+                            <a href="{{ route('pemilik_rumah.edit', $rumah->id) }}" class="btn btn-primary">Edit</a> 
+                            <form action="{{ route('pemilik_rumah.destroy', $rumah->id) }}" method="post" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

@@ -18,7 +18,7 @@
                     <td> {{$rumah->no_rumah}} </td>
                     <td> {{$rumah->is_occupied ? "Ditempati" : "Kosong"}} </td>
                     {{-- <td> {{$rumah->updated_at->format("Y m d")}} </td> --}}
-                    <td> <a href=" {{route("perumahan.show", ["id" => $rumah->id])}} ">Edit</a> </td>
+                    <td> <a href=" {{route("perumahan.show", ["id" => $rumah->id])}} " class="btn btn-primary" >Edit</a> </td>
                 </tr>
             @endforeach
         </table>

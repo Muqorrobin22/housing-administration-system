@@ -95,6 +95,10 @@ class PemilikRumahController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pemilikRumah = PemilikRumah::find($id);
+
+        $pemilikRumah->delete();
+
+        return redirect()->route("pemilik_rumah.index");
     }
 }
