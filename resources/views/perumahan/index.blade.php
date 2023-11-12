@@ -10,10 +10,10 @@
 
     @if(count($perumahans) > 0)
         <ul>
-            @foreach($perumahans as $perumahan)
+            @foreach($perumahan as $rumah)
                 <li>
-                    <a href="{{ route('perumahan.show', ['id' => $perumahan->id]) }}">
-                        {{ $perumahan->nama_rumah }}
+                    <a href="{{ route('perumahan.show', ['id' => $rumah->id]) }}">
+                        {{ $rumah->nama_rumah }}
                     </a>
                 </li>
             @endforeach
