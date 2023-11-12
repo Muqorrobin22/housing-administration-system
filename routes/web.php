@@ -35,6 +35,10 @@ Route::post("/pemilik_rumah", [PemilikRumahController::class, "store"])->name("p
 // Penduduk
 Route::get("/penduduk", [PendudukController::class, "index"])->name("penduduk.index");
 Route::get("/penduduk/create", [PendudukController::class,"create"])->name("penduduk.create");
+Route::get("/penduduk/edit/{id}", [PendudukController::class,"edit"])->name("penduduk.edit");
+Route::put("/penduduk/edit/{id}", [PendudukController::class,"update"])->name("penduduk.update");
 Route::post("/penduduk", [PendudukController::class,"store"])->name("penduduk.store");
+Route::delete("/penduduk/delete/{id}", [PendudukController::class,"destroy"])->name("penduduk.destroy");
+
 
 
