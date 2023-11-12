@@ -8,11 +8,11 @@
 <body>
     <h1>Perumahan List</h1>
 
-    @if(count($perumahans) > 0)
+    @if(count($perumahan) > 0)
         <ul>
             @foreach($perumahan as $rumah)
                 <li>
-                    <a href="{{ route('perumahan.show', ['id' => $rumah->id]) }}">
+                    <a href="">
                         {{ $rumah->nama_rumah }}
                     </a>
                 </li>
