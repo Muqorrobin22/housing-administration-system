@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Perumahan;
 use Illuminate\Http\Request;
 
 class PerumahanController extends Controller
@@ -51,7 +52,23 @@ class PerumahanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $perumahan = Perumahan::find($id);
+
+        if(!$perumahan) {
+            return response()->json(["message" => "Perumahan not found"], 404);
+        }
+
+        $request->validate([
+            'nama_rumah'   => 'required|string|max:255',
+            'no_rumah'     => 'required|numeric',
+            'is_occupied'  => 'required|boolean',
+        ]);
+
+        $perumahan->nama_rumah = $request->input('nama_rumah');
+        $perumahan->no_rumah = $request->input('no_rumah');
+        $perumahan->is_occupied = $request->input('is_occupied');
+        $perumahan->save();
+
     }
 
     /**
