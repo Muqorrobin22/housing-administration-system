@@ -22,9 +22,7 @@
                         <td>{{ $rumah->nama_lengkap }}</td>
                         <td>{{ $rumah->perumahan->nama_rumah }}</td>
                         <td>
-                            {{-- <a href="{{ route('pemilik_rumah.show', $rumah->id) }}" class="btn btn-info btn-sm">View</a>
-                            <a href="{{ route('pemilik_rumah.edit', $rumah->id) }}" class="btn btn-primary btn-sm">Edit</a> --}}
-                            <!-- Add a delete button if needed -->
+                            <a href="{{ route('pemilik_rumah.edit', $rumah->id) }}" class="btn btn-primary btn-sm">Edit</a> 
                         </td>
                     </tr>
                 @endforeach
