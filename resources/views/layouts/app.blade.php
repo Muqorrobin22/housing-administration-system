@@ -8,29 +8,23 @@
     <!-- Add your stylesheets, scripts, or any other meta tags here -->
 
     <!-- Example: Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyR5BfImdFHHU=&#x0A;" crossorigin="anonymous">
-    @vite(['resources/sass/app.scss', "resources/js/app.js"])
+    <link rel="stylesheet" href=" {{url("/css/app.css")}} ">
+    @vite(['resources/sass/app.scss', "resources/js/app.js", "resources/css/app.css"])
 </head>
-<body>
+<body style="font-size: 18px">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Sistem Manajemen perumahan</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Add your navigation links or menu items here -->
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <!-- Add more navigation links as needed -->
-            </ul>
+    <nav class="navbar navbar-expand-lg bg-primary px-5 py-3" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Sistem Administrasi Perumahan</a>
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="{{route("payments.index")}}">Pembayaran</a>
+              <a class="nav-link" href="{{route("perumahan.home")}}">Perumahan</a>
+              <a class="nav-link" href="{{route("pemilik_rumah.index")}}">Pemilik Rumah</a>
+              <a class="nav-link" href="{{route("penduduk.index")}}">Penduduk</a>
+              <a class="nav-link" href="{{route("recap.index")}}">Rekap</a>
+          </div>
         </div>
-    </nav>
+      </nav>
 
     <div class="container mt-4">
         <!-- This is where the content of each page will be inserted -->
