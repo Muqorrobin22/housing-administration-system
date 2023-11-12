@@ -22,8 +22,8 @@
                     <td>{{$rumah->nama_rumah}}</td>
                     <td> {{$rumah->no_rumah}} </td>
                     <td> {{$rumah->is_occupied ? "Ditempati" : "Kosong"}} </td>
-                    <td> {{$rumah->updated_at}} </td>
-                    <td> edit </td>
+                    <td> {{$rumah->updated_at->format("Y m d")}} </td>
+                    <td> <a href="">Edit</a> </td>
                 </tr>
             @endforeach
         </table>
