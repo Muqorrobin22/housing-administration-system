@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Perumahan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PerumahanController extends Controller
 {
@@ -37,7 +38,14 @@ class PerumahanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $perumahan = Perumahan::find($id);
+
+        // You can handle the case when the record is not found.
+        if (!$perumahan) {
+            return response()->view('perumahan.notfound', [], 404);
+        }
+
+        return view('perumahan.show', compact('perumahan'));
     }
 
     /**
@@ -53,22 +61,26 @@ class PerumahanController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        dump('Update method is being executed.');   
         $perumahan = Perumahan::find($id);
 
-        if(!$perumahan) {
-            return response()->json(["message" => "Perumahan not found"], 404);
-        }
+        // if(!$perumahan) {
+        //     return response()->json(["message" => "Perumahan not found"], 404);
+        // }
 
-        $request->validate([
-            'nama_rumah'   => 'required|string|max:255',
-            'no_rumah'     => 'required|numeric',
-            'is_occupied'  => 'required|boolean',
-        ]);
+        // $request->validate([
+        //     'nama_rumah'   => 'required|string|max:255',
+        //     'no_rumah'     => 'required|numeric',
+        //     'is_occupied'  => 'required|boolean',
+        // ]);
 
         $perumahan->nama_rumah = $request->input('nama_rumah');
         $perumahan->no_rumah = $request->input('no_rumah');
-        $perumahan->is_occupied = $request->input('is_occupied');
-        $perumahan->save();
+        $perumahan->is_occupied = $request->input('is_occupied') ? true : false;
+        $perumahan->updated_at = now();
+        $perumahan = $perumahan->save();
+
+        return  redirect()->route('perumahan.show', ['id' => $id]);
 
     }
 
