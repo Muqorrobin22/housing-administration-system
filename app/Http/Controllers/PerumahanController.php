@@ -12,7 +12,8 @@ class PerumahanController extends Controller
      */
     public function index()
     {
-        //
+        $perumahan = Perumahan::all();
+        return view("perumahan.index", compact("perumahan"));
     }
 
     /**
