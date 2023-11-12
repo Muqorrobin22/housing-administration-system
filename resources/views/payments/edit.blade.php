@@ -9,7 +9,10 @@
 
         <div class="mb-3">
             <label for="category" class="form-label">Category</label>
-            <input type="text" class="form-control" id="category" name="category" value="{{ $payment->category }}" required>
+            <select class="form-control" id="category" name="category" required>
+                <option value="Kebersihan" {{ $payment->category == 'kebersihan' ? 'selected' : '' }}>Kebersihan</option>
+                <option value="Satpam" {{ $payment->category == 'satpam' ? 'selected' : '' }}>Satpam</option>
+            </select>
         </div>
 
         <div class="mb-3">
