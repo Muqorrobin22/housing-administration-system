@@ -9,6 +9,8 @@ class Perumahan extends Model
 {
     use HasFactory;
 
+    protected $table = "perumahan";
+
     public function findPerumahan($id)
     {
 
