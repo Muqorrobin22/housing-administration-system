@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MonthlyPaymentController;
 use App\Http\Controllers\PemilikRumahController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PerumahanController;
@@ -39,6 +40,15 @@ Route::get("/penduduk/edit/{id}", [PendudukController::class,"edit"])->name("pen
 Route::put("/penduduk/edit/{id}", [PendudukController::class,"update"])->name("penduduk.update");
 Route::post("/penduduk", [PendudukController::class,"store"])->name("penduduk.store");
 Route::delete("/penduduk/delete/{id}", [PendudukController::class,"destroy"])->name("penduduk.destroy");
+
+
+// Payments
+Route::get("/payments", [MonthlyPaymentController::class,"index"])->name("payments.index");
+Route::get("/payments/create", [MonthlyPaymentController::class,"create"])->name("payments.create");
+Route::get("/payments/edit/{id}", [MonthlyPaymentController::class,"edit"])->name("payments.edit");
+Route::put("/payments/edit/{id}", [MonthlyPaymentController::class,"update"])->name("payments.update");
+Route::post("/payments", [MonthlyPaymentController::class, "store"])->name("payments.store");
+Route::delete("/payments/delete/{id}", [MonthlyPaymentController::class, "destroy"])->name("payments.destroy");
 
 
 
