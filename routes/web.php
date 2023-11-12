@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PemilikRumahController;
+use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PerumahanController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,5 +31,10 @@ Route::get("/pemilik_rumah/create", [PemilikRumahController::class, "create"])->
 Route::get("/pemilik_rumah/edit/{id}", [PemilikRumahController::class, "edit"])->name("pemilik_rumah.edit");
 Route::put("/pemilik_rumah/edit/{id}", [PemilikRumahController::class, "update"])->name("pemilik_rumah.update");
 Route::post("/pemilik_rumah", [PemilikRumahController::class, "store"])->name("pemilik_rumah.store");
+
+// Penduduk
+Route::get("/penduduk", [PendudukController::class, "index"])->name("penduduk.index");
+Route::get("/penduduk/create", [PendudukController::class,"create"])->name("penduduk.create");
+Route::post("/penduduk", [PendudukController::class,"store"])->name("penduduk.store");
 
 
