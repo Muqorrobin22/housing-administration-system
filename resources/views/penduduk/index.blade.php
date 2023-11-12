@@ -24,21 +24,22 @@
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach($penduduk as $pend)
                     <tr>
-                        <td>{{ $pend->id }}</td>
+                        <td>{{ $no }}</td>
                         <td>{{ $pend->nama_penduduk }}</td>
                         <td>{{ $pend->pemilikRumah->nama_lengkap }}</td>
                         <td>
-                            {{-- <a href="{{ route('penduduk.show', $pend->id) }}" class="btn btn-info">View</a>
                             <a href="{{ route('penduduk.edit', $pend->id) }}" class="btn btn-primary">Edit</a>
                             <form action="{{ route('penduduk.destroy', $pend->id) }}" method="post" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                            </form> --}}
+                            </form>
                         </td>
                     </tr>
+                    <?php $no++ ?>
                 @endforeach
             </tbody>
         </table>
