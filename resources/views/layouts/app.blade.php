@@ -15,7 +15,7 @@
 
     <nav class="navbar navbar-expand-lg bg-primary px-5 py-3" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Sistem Administrasi Perumahan</a>
+          <a class="navbar-brand" href="{{url("/")}}">Sistem Administrasi Perumahan</a>
             <div class="navbar-nav">
               <a class="nav-link" aria-current="page" href="{{route("payments.index")}}">Pembayaran</a>
               <a class="nav-link" href="{{route("perumahan.home")}}">Perumahan</a>
