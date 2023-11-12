@@ -9,15 +9,24 @@
     <h1>Perumahan List</h1>
 
     @if(count($perumahan) > 0)
-        <ul>
+        <table>
+            <tr>
+                <th>Nama Rumah</th>
+                <th>Nomor Rumah</th>
+                <th>Status</th>
+                <th>Update Terakhir</th>
+                <th>Action</th>
+            </tr>
             @foreach($perumahan as $rumah)
-                <li>
-                    <a href="">
-                        {{ $rumah->nama_rumah }}
-                    </a>
-                </li>
+                <tr>
+                    <td>{{$rumah->nama_rumah}}</td>
+                    <td> {{$rumah->no_rumah}} </td>
+                    <td> {{$rumah->is_occupied ? "Ditempati" : "Kosong"}} </td>
+                    <td> {{$rumah->updated_at}} </td>
+                    <td> edit </td>
+                </tr>
             @endforeach
-        </ul>
+        </table>
     @else
         <p>No perumahan records found.</p>
     @endif
