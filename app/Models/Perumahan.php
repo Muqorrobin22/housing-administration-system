@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Perumahan extends Model
 {
     use HasFactory;
+
+    public function findPerumahan($id)
+    {
+
+        $perumahan = Perumahan::find($id);
+
+        if(!$perumahan) {
+            return response()->json(["message" => "Perumahan tidak ditemukan", 404]);
+        }
+
+        return response()->json($perumahan);
+
+    }
+ 
 }
