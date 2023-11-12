@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>Pemilik Rumah List</h2>
 
-    <a href="{{ route('pemilik_rumah.create') }}" class="btn btn-success mb-2">Create New Pemilik Rumah</a>
+    <h2 class="mb-3">Pemilik Rumah List</h2>
+    <div class="flex align-items-center mb-5">
+        <a href="{{ route('pemilik_rumah.create') }}" class="btn btn-success">Create New Pemilik Rumah</a>
+    </div>
 
     @if(count($pemilikRumah) > 0)
-        <table class="table">
-            <thead>
+        <table class="table table-striped table-hover">
+            <thead class="table-primary">
                 <tr>
                     
                     <th>Nama Lengkap</th>

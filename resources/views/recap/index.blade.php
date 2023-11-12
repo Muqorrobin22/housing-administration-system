@@ -1,10 +1,10 @@
 @extends('layouts.app') <!-- You might need to adjust this based on your actual layout structure -->
 
 @section('content')
-    <h1>Recap Data</h1>
+    <h1 class="my-5">Rekap Data</h1>
 
-    <table border="1">
-        <thead>
+    <table class="table table-striped table-hover">
+        <thead class="table-light" >
             <tr>
                 <th>No</th>
                 <th>Rumah</th>

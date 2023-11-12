@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create Monthly Payment</h1>
+    <h1 class="my-5">Create Monthly Payment</h1>
 
     <form action="{{ route('payments.store') }}" method="POST">
         @csrf
@@ -54,6 +54,6 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Save Monthly Payment</button>
+        <button type="submit" class="btn btn-warning">Save Monthly Payment</button>
     </form>
 @endsection
