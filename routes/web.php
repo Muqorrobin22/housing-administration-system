@@ -33,6 +33,7 @@ Route::get("/pemilik_rumah/create", [PemilikRumahController::class, "create"])->
 Route::get("/pemilik_rumah/edit/{id}", [PemilikRumahController::class, "edit"])->name("pemilik_rumah.edit");
 Route::put("/pemilik_rumah/edit/{id}", [PemilikRumahController::class, "update"])->name("pemilik_rumah.update");
 Route::post("/pemilik_rumah", [PemilikRumahController::class, "store"])->name("pemilik_rumah.store");
+Route::delete("/pemilik_rumah/delete/{id}", [PemilikRumahController::class,"destroy"])->name("pemilik_rumah.destroy");
 
 // Penduduk
 Route::get("/penduduk", [PendudukController::class, "index"])->name("penduduk.index");
