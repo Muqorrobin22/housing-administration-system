@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('monthly_payments', function (Blueprint $table) {
-            //
+            $table->char('year', 4);
+            $table->enum('month', ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']);
         });
     }
 
@@ -22,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('monthly_payments', function (Blueprint $table) {
-            //
+            $table->dropColumn(['year', 'month']);
         });
     }
 };
