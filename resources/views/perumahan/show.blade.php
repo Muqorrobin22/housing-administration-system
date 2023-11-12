@@ -1,31 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Perumahan</title>
-</head>
-<body>
-    <h1>Show Perumahan</h1>
-
+@extends('layouts.app')
+@section("content")
+    <a href="{{route("perumahan.home")}}" class="btn btn-primary">Kembali</a>
+    <h1 class="my-5">Update Rumah</h1>
     <form method="POST" action="{{ route('perumahan.update', ['id' => $perumahan->id]) }}">
         @csrf
         @method('PUT')
 
-        <label for="nama_rumah">Nama Rumah:</label>
-        <input type="text" name="nama_rumah" value="{{ $perumahan->nama_rumah }}" required>
+        <div class="mb-3">
+            <label for="nama_rumah" class="form-label">Nama Rumah:</label>
+            <input type="text" name="nama_rumah" value="{{ $perumahan->nama_rumah }}" class="form-control" required>
+        </div>
 
-        <label for="no_rumah">No Rumah:</label>
-        <input type="number" name="no_rumah" value="{{ $perumahan->no_rumah }}" required>
+        <div class="mb-3">
+            <label for="no_rumah" class="form-label">Nomor Rumah:</label>
+            <input type="number" name="no_rumah"  class="form-control" value="{{ $perumahan->no_rumah }}" required>
+        </div>
 
-        <label for="is_occupied">Occupied:</label>
-        <input type="checkbox" name="is_occupied" {{ $perumahan->is_occupied ? 'checked' : '' }}>
+        <div class="mb-3">
+            <label for="is_occupied" class="form-label">Ditempati:</label>
+            <input type="checkbox" name="is_occupied" class="form-check-input"  {{ $perumahan->is_occupied ? 'checked' : '' }}>
+        </div>
 
         <!-- Add more fields as needed -->
 
-        <button type="submit">Update</button>
+        <button class="btn btn-warning" type="submit">Update</button>
     </form>
-
-    <a href="{{ url('/perumahan') }}">Back to Home</a>
-</body>
-</html>
+@endsection
