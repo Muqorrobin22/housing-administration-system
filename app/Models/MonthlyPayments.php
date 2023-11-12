@@ -9,7 +9,7 @@ class MonthlyPayments extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category', 'is_paid', 'rumah_id'];
+    protected $fillable = ['category', 'is_paid', 'rumah_id', 'year', 'month'];
 
 
     public function perumahan()
