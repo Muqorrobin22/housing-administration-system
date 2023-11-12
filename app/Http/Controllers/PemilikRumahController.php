@@ -37,7 +37,7 @@ class PemilikRumahController extends Controller
             'nama_lengkap' => 'required|string|max:255',
             'rumah_id' => 'required|exists:perumahan,id', // Ensure that the selected perumahan exists
         ]);
-        
+
         $pemilikRumah = PemilikRumah::create($validatedData);
 
         // Redirect to a specific route or action after storing
@@ -58,7 +58,12 @@ class PemilikRumahController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pemilikRumah = PemilikRumah::find($id);
+
+        // Fetch a list of available perumahan
+        $perumahanList = Perumahan::pluck('nama_rumah', 'id');
+
+        return view('pemilik_rumah.edit', compact('pemilikRumah', 'perumahanList'));
     }
 
     /**
@@ -66,7 +71,23 @@ class PemilikRumahController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+         // Validate the incoming request data
+        $validatedData = $request->validate([
+            'nama_lengkap' => 'required|string|max:255',
+            'rumah_id' => 'required|exists:perumahan,id', // Ensure that the selected perumahan exists
+        ]);
+
+        // Update the data in the database
+        $pemilikRumah = PemilikRumah::find($id);
+
+        if (!$pemilikRumah) {
+            return redirect()->route('pemilik_rumah.index')->with('error', 'Pemilik Rumah not found');
+        }
+
+        $pemilikRumah->update($validatedData);
+
+        // Redirect to a specific route or action after updating
+        return redirect()->route('pemilik_rumah.index')->with('success', 'Pemilik Rumah updated successfully!');
     }
 
     /**
