@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PemilikRumah;
 use App\Models\Perumahan;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PemilikRumahController extends Controller
 {
@@ -34,7 +35,7 @@ class PemilikRumahController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_lengkap' => 'required|string|max:255',
+            'nama_lengkap' => ['required', 'string', 'max:255', Rule::unique('pemilik_rumah', 'nama_lengkap')],
             'rumah_id' => 'required|exists:perumahan,id', // Ensure that the selected perumahan exists
         ]);
 
@@ -73,7 +74,7 @@ class PemilikRumahController extends Controller
     {
          // Validate the incoming request data
         $validatedData = $request->validate([
-            'nama_lengkap' => 'required|string|max:255',
+            'nama_lengkap' => ['required', 'string', 'max:255', Rule::unique('pemilik_rumah', 'nama_lengkap')->ignore($id)],
             'rumah_id' => 'required|exists:perumahan,id', // Ensure that the selected perumahan exists
         ]);
 
