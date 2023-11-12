@@ -9,6 +9,7 @@
 
     <!-- Example: Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyR5BfImdFHHU=&#x0A;" crossorigin="anonymous">
+    @vite(['resources/sass/app.scss', "resources/js/app.js"])
 </head>
 <body>
 
